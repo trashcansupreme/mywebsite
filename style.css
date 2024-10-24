@@ -1,0 +1,419 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    scroll-behavior: smooth;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.389); /* Transparent background */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    padding: 10px 0;
+}
+
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.5s ease;
+}
+
+/* Ensure the container aligns items properly */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* Style the logo */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Position the menu icon on the top-right corner */
+.menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Fullscreen menu setup */
+.fullscreen-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Center the menu items */
+.menu-items {
+    list-style: contents;
+}
+
+.menu-items li {
+    margin: 20px 0;
+}
+
+.menu-items li a {
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.menu-items li a:hover {
+    color: #f1c40f;
+}
+
+/* Show the fullscreen menu when active */
+.fullscreen-menu.active {
+    display: flex;
+}
+
+/* Optional: Changing background color of the body when menu is active */
+body.menu-active {
+    background-color: #333;
+}
+
+/* Header background when scrolling */
+header.scrolled {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+/* Header background when scrolling */
+header.scrolled {
+    background-color: #007BFF; /* Color when scrolled */
+    backdrop-filter: none; /* Remove blur effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow when scrolled */
+}
+
+header .logo {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: #333;
+}
+
+.nav-menu {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu li {
+    display: inline;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    color: white;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Body Padding for Fixed Header */
+body {
+    padding-top: 80px; /* Adjust for header height */
+}
+
+/* Modal Background */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1001; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.5); 
+    padding-top: 60px;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Form Elements */
+.modal form input[type="text"], 
+.modal form input[type="password"], 
+.modal form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.modal form button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal form button:hover {
+    background-color: #0056b3;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('hero-banner.jpg') no-repeat center center/cover;
+    text-align: center;
+    color: #44443b;
+    padding: 100px 0;
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.hero-btn:hover, .footer-btn:hover {
+    background-color: #ff6b81;
+}
+
+.meet-the-man-section {
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    margin: 40px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.meet-the-man-section h2 {
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.meet-the-man-section p {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.meet-the-man-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto;
+    max-width: 1000px;
+    padding: 20px;
+}
+
+.meet-the-man-text {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.meet-the-man-text h2 {
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.meet-the-man-text p {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.meet-the-man-image {
+    flex: 0 0 300px;
+}
+
+.meet-the-man-image img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* Course Overview */
+.course-overview {
+    padding: 50px 0;
+    background-color: #f3f3f3;
+    text-align: center;
+}
+
+.course-overview h2 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+}
+
+.benefits {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.benefit {
+    flex: 1 1 30%;
+    margin-bottom: 20px;
+}
+
+.benefit h3 {
+    font-size: 1.5em;
+}
+
+/* Testimonials Section */
+.testimonials {
+    background-color: #fff;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 2em;
+    margin-bottom: 40px;
+}
+
+.testimonial-item {
+    display: inline-block;
+    max-width: 400px;
+    margin: 0 20px;
+}
+
+.testimonial-image {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+/* FAQ Section */
+.faq-section {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.faq-item {
+    margin-bottom: 30px;
+}
+
+.faq-item h3 {
+    font-size: 1.5em;
+}
+
+/* Footer */
+footer {
+    background-color: #3b5998;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-btn {
+    background-color: #ff4757;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .benefits {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .benefit {
+        width: 100%;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+}

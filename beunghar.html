@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beunghar Business Course</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header and Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-left">
+                <id="userEmail" class="email-link">User's Email</a>
+            </div>
+            <h1 class="logo">Beunghar.com</h1>
+            <nav>
+                <div class="menu-icon" onclick="toggleMenu()">
+                    &#9776; <!-- This is the hamburger icon -->
+                </div>
+                <div id="fullscreenMenu" class="fullscreen-menu">
+                    <ul class="menu-items">
+                        <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+                        <li><a href="#reviews" onclick="toggleMenu()">Reviews</a></li>
+                        <li><a href="#faq" onclick="toggleMenu()">FAQ</a></li>
+                        <li><a href="#sign-in" onclick="toggleMenu()">Login</a></li>
+                        <li><a href="#register" onclick="toggleMenu()">Register</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Login Modal -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('loginModal')">&times;</span>
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</div>
+
+<!-- Register Modal -->
+<div id="registerModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('registerModal')">&times;</span>
+        <h2>Register</h2>
+        <form id="registerForm">
+            <label for="reg-username">Username:</label>
+            <input type="text" id="reg-username" name="username" required>
+
+            <label for="reg-password">Password:</label>
+            <input type="password" id="reg-password" name="password" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</div>
+
+    <!-- Hero Section (Banner) -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1>Transform Your Future with Our Business Course</h1>
+            <p>Learn essential business skills designed for aspiring entrepreneurs in our comprehensive 6-week course.</p>
+            <a href="javascript:void(0);" class="btn hero-btn" onclick="openModal('registerModal')">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Image Slider Section -->
+    <section class="image-slider">
+        <div class="slider-container">
+            <div class="slide active">
+                <img src="img/Win Win PNG Images,  City Lighting, Shake Hands, Cooperation PNG Transparent Background - Pngtree.jpeg" alt="Business Strategy" />
+            </div>
+            <div class="slide">
+                <img src="img/Business-Technology.jpeg" alt="Entrepreneurship" />
+            </div>
+            <div class="slide">
+                <img src="slider-image3.jpg" alt="Marketing" />
+            </div>
+            <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+            <button class="next" onclick="plusSlides(1)">&#10095;</button>
+        </div>
+    </section>
+
+<!-- Meet the Man Section -->
+<section id="meet-the-man" class="meet-the-man-section">
+    <div class="container">
+        <h2>Meet the Man</h2>
+        <p>Mr Paskalis owns businesses in various divisions which have all gained popularity and credibility that continues to strive to this day.</p>
+    </div>
+    <div class="meet the man-item">
+        <img src="img/Premium Photo _ Happy Asian boss manager business man wears black suit in relax pose_.jpeg">
+    </div>
+</section>
+
+    <!-- Course Overview Section -->
+    <section class="course-overview">
+        <div class="container">
+            <h2>Why Join Our Course?</h2>
+            <p>Our course covers everything from business fundamentals to practical real-world strategies. Whether you're starting a new venture or improving an existing one, this course is for you.</p>
+            <div class="benefits">
+                <div class="benefit">
+                    <h3>Expert Instructors</h3>
+                    <p>Learn from experienced professionals with years of business experience.</p>
+                </div>
+                <div class="benefit">
+                    <h3>Hands-On Projects</h3>
+                    <p>Work on real-life business cases and receive valuable feedback.</p>
+                </div>
+                <div class="benefit">
+                    <h3>Flexible Learning</h3>
+                    <p>Access course materials anytime, anywhere on your own schedule.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="reviews" class="testimonials">
+        <div class="container">
+            <h2>What Our Students Say</h2>
+            <div class="testimonial-item">
+                <img src="student1.jpg" alt="Student 1" class="testimonial-image">
+                <p>"This course changed my life! The knowledge I gained has been invaluable to my business journey." - John Doe</p>
+            </div>
+            <div class="testimonial-item">
+                <img src="student2.jpg" alt="Student 2" class="testimonial-image">
+                <p>"I gained practical skills that I use every day. This was one of the best decisions I’ve made!" - Jane Smith</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3>How long is the course?</h3>
+                <p>The course lasts for 6 weeks, with new modules released each week.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What if I fall behind?</h3>
+                <p>No problem! You can access all materials at any time and complete the course at your own pace.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with CTA -->
+    <footer>
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p>Sign up now to unlock your potential and gain the skills you need to succeed in business.</p>
+            <a href="javascript:void(0);" class="btn hero-btn" onclick="openModal('registerModal')">Get Started</a>
+        </div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#sign-in">Login</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('fullscreenMenu');
+            const body = document.body;
+    
+            // Toggle the 'active' class for the menu
+            menu.classList.toggle('active');
+    
+            // Toggle background color change by adding/removing a class to body
+            if (menu.classList.contains('active')) {
+                body.classList.add('menu-active');
+            } else {
+                body.classList.remove('menu-active');
+            }
+        }
+    </script>
+    
+    <script>
+        // Set the user's email address dynamically
+        const userEmail = 'user@example.com'; // Replace this with the actual user's email
+        document.getElementById('userEmail').href = `mailto:${userEmail}`;
+        document.getElementById('userEmail').textContent = userEmail;
+    
+        // Existing toggleMenu and other scripts...
+    </script>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {  
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Image Slider
+        let slideIndex = 0;
+        showSlides();
+
+        function plusSlides(n) {
+            slideIndex += n;
+            showSlides();
+        }
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            }
+            if (slideIndex < 0) {
+                slideIndex = slides.length - 1;
+            }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex].style.display = "block";
+        }
+
+        // Function to open a modal
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        // Function to close a modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        // Close modal if the user clicks outside of it
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target.id);
+            }
+        }
+
+        // Attach event listeners to Login and Register buttons
+        document.querySelector('a[href="#sign-in"]').addEventListener('click', function(event) {
+            event.preventDefault();
+            openModal('loginModal');
+        });
+
+        document.querySelector('a[href="#register"]').addEventListener('click', function(event) {
+            event.preventDefault();
+            openModal('registerModal');
+        });
+    </script>
+    
+</body>
+</html>
