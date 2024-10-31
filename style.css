@@ -1,0 +1,644 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    scroll-behavior: smooth;
+    background-color:whitesmoke; /* Light background for better contrast */
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+    padding: 15px 0; /* Increased padding for a more spacious look */
+}
+
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.5s ease;
+}
+
+/* Container for header items */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px; /* More padding for better spacing */
+}
+
+/* Logo Styling */
+.logo {
+    font-size: 2em; /* Larger font size for prominence */
+    font-weight: bold;
+    color: #fff; /* White color for better contrast */
+}
+
+/* Menu Icon */
+.menu-icon {
+    cursor: pointer;
+    padding: 10px;
+    color: white;
+    font-size: 30px;
+}
+
+.menu-icon:hover {
+    background: rgba(255, 255, 255, 0.2); /* Highlight on hover */
+}
+
+.fullscreen-menu {
+    position: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Darker background for fullscreen */
+    color: #ffab40; /* Orange text for contrast */
+    display: none;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Center text */
+}
+
+.fullscreen-menu.active {
+    display: contents; /* Show when active */
+}
+
+.menu-items a {
+    color: #ffab40; /* Orange link color */
+    text-decoration: none;
+    padding: 20px;
+    font-size: 1.5em; /* Consistent sizing */
+    transition: color 0.3s ease;
+}
+
+.menu-items a:hover {
+    color: #fff; /* White color on hover */
+}
+
+.menu-items li {
+    margin: 15px 0; /* Reduced margin for a tighter look */
+}
+
+header .logo {
+    font-size: 2em; /* Increased logo size */
+    color: #ffab40; /* Match logo color with menu link */
+}
+
+.nav-menu {
+    list-style-type: none;
+    display: flex;
+    gap: 30px; /* More space between items */
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    color: #ffab40; /* Highlight on hover */
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #ffab40; /* Button color */
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s; /* Added transform for hover effect */
+}
+
+.btn:hover {
+    background-color: #e09424; /* Darker shade on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Body Padding for Fixed Header */
+body {
+    padding-top: 80px; /* Adjust for header height */
+}
+
+/* Hero Section */
+
+.hero-section {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Hide overflow */
+    display: flex; /* Use flexbox to center content */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    text-align: center; /* Center text alignment */
+    background-color: rgba(40, 40, 40, 0.8); /* Dark grey with transparency */
+}
+
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    transform: translate(-50%, -50%); /* Center the video */
+    object-fit: cover; /* Cover the area without stretching */
+    z-index: 0; /* Send the video to the back */
+}
+
+.hero-content {
+    position: relative; /* Position content above the video */
+    z-index: 1; /* Make sure content is above the video */
+    color: white; /* Change text color for visibility */
+    padding: 20px; /* Optional padding */
+}
+
+
+.hero-content {
+    position: relative;
+    z-index: 1; /* Bring content in front of video */
+    color: white; /* Text color for visibility */
+    padding: 20px; /* Some padding */
+    font:
+     'MangoGrotesque';
+        src: url('Humane-Regular.woff2') format('woff2'), /* Modern Browsers */
+             url('Humane-Regular.otf') format('opentype'); /* Safari, Android, iOS */
+                 font-style: normal;
+        font-weight: normal;
+        text-rendering: optimizeLegibility;
+    
+}
+
+
+.hero-content h1, .hero-content h2, .hero-content p {
+    margin: 10px 0;
+}
+
+.hero-btn {
+    margin-top: 20px;
+    padding: 12px 24px; /* Slightly larger button */
+    background-color: #ffab40; /* Button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s; /* Added transform for hover effect */
+}
+
+.hero-btn:hover {
+    background-color: #e09424; /* Button hover color */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.video-section {
+    position: relative;
+    margin-top:200px;
+    margin-bottom: 300px;
+    display: flex;
+    background-color: #333;
+    padding: 20px;
+    justify-content: center; /* Center the video */
+}
+
+.dynamic-video {
+    width:60%; /* Make video responsive */
+    height: 50%; /* Maintain aspect ratio */
+    border-radius: 15px; /* Apply rounded corners directly to the video */
+    display: block; /* Remove bottom whitespace */
+}
+
+.meet-the-man-section {
+    background-color: #fff; /* White background for contrast */
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    margin: 40px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Increased shadow for depth */
+}
+
+.meet-the-man-section h2 {
+    font-size: 2.5em; /* Increased font size */
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.meet-the-man-section p {
+    font-size: 1.2em;
+    font-weight: 400; /* Normal weight for body text */
+    color: #333;
+}
+
+.meet-the-man-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto;
+    max-width: 1000px;
+    padding: 20px;
+}
+
+.meet-the-man-text {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.meet-the-man-image {
+    flex: 0 0 300px;
+}
+
+.meet-the-man-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Shadow for the image */
+}
+
+/* Course Overview */
+.course-overview {
+    padding: 50px 20px; /* Add side padding for smaller screens */
+    background-color: #f3f3f3;
+    text-align: center;
+}
+
+.course-overview h2 {
+    font-size: 2.5em; /* Increased heading size */
+    margin-bottom: 20px;
+    color: #444; /* Darker color for better readability */
+}
+
+.benefits {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.benefit {
+    flex: 1 1 30%;
+    margin-bottom: 20px;
+    padding: 20px; /* Added padding for the benefit items */
+    background-color: #fff; /* Background for contrast */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.benefit h3 {
+    font-size: 1.5em;
+}
+
+.testimonials {
+    position: relative;
+    padding: 40px 20px;
+    background-color: #f9f9f9; /* Light background color */
+    text-align: center;
+}
+
+.testimonial-slider {
+    display: flex;
+    overflow: hidden; /* Hide overflow for sliding effect */
+    border-radius: 15px; /* Rounded corners for the slider */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); /* Increased shadow for depth */
+}
+
+.testimonial-item {
+    min-width: 100%; /* Each testimonial takes full width */
+    transition: transform 0.5s ease; /* Smooth transition for sliding */
+    padding: 20px; /* Padding for testimonial text */
+    background-color: white; /* White background for testimonials */
+    border-radius: 15px; /* Rounded corners */
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.testimonial-item p {
+    margin: 0; /* Remove default margin */
+    font-size: 1.2em; /* Font size for testimonial text */
+    color: #333; /* Text color */
+}
+
+.modules {
+    text-align: center;
+    margin: 40px auto;
+}
+
+.module-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between boxes */
+}
+
+.module-box {
+    background-color: #f0f0f0; /* Light background */
+    border-radius: 15px; /* Round edges */
+    padding: 20px;
+    width: 200px; /* Fixed width */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: transform 0.2s, box-shadow 0.2s; /* Animation effects */
+}
+
+.module-box:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.module-box h3 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.module-box p {
+    margin: 5px 0 0;
+    font-size: 1em;
+}
+
+/* FAQ Section */
+.faq-section {
+    background-color: #f9f9f9;
+    padding: 50px 20px; /* Added side padding for smaller screens */
+    text-align: center;
+}
+
+.faq-item {
+    margin-bottom: 30px;
+}
+
+.faq-item h3 {
+    font-size: 1.5em;
+}
+
+/* Footer */
+footer {
+    background-color: #3b5998; /* Keeping this for branding */
+    color: white;
+    padding: 40px 20px; /* Added side padding for mobile responsiveness */
+    text-align: center;
+}
+
+.footer-btn {
+    background-color: #ff4757;
+    padding: 12px 24px; /* Slightly larger padding */
+    border-radius: 25px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s; /* Added transform for hover effect */
+}
+
+.footer-btn:hover {
+    background-color: #e33e50; /* Darker shade on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .benefits {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .benefit {
+        width: 100%;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5em; /* Larger heading on small screens */
+    }
+
+    .hero-content p {
+        font-size: 1.2em; /* Adjusted body text size */
+    }
+
+    .nav-menu {
+        flex-direction: column; /* Stack navigation links on smaller screens */
+        align-items: center; /* Center items */
+    }
+
+    .nav-menu li {
+        margin: 10px 0; /* Margin for stacking */
+    }
+}
+
+/* About Us Section */
+.about-us {
+    background-color: #f3f3f3; /* Light background */
+    padding: 50px 20px; /* Top and bottom padding */
+    text-align: center; /* Center the text */
+    margin-top: 150px;
+}
+
+.about-us h2 {
+    font-size: 2.5em; /* Larger heading */
+    margin-bottom: 20px; /* Space below heading */
+    color: #444; /* Darker color for better readability */
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px; /* Limit the width */
+    margin: 0 auto; /* Center the container */
+}
+
+.about-images {
+    flex: 1; /* Take up available space */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between images */
+}
+
+.about-item {
+    background-color: white; /* White background for items */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    padding: 20px;
+    text-align: left; /* Align text to the left */
+}
+
+.about-image {
+    width: 100%; /* Responsive image */
+    border-radius: 10px; /* Round edges */
+}
+
+.about-text {
+    flex: 1; /* Take up remaining space */
+    padding-left: 20px; /* Space from the images */
+    align-self: center; /* Center vertically */
+}
+
+.about-text p {
+    font-size: 1.2em; /* Increased font size for better readability */
+    color: #333; /* Dark text */
+}
+
+/* FAQ Section */
+.faq-section {
+    background-color: #f9f9f9; /* Light background color */
+    padding: 50px 20px; /* Add padding */
+    text-align: center; /* Center text */
+}
+
+.faq-section h2 {
+    font-size: 2.5em; /* Heading size */
+    margin-bottom: 20px; /* Space below heading */
+    color: #444; /* Darker color for better readability */
+}
+
+.faq-item {
+    margin-bottom: 30px; /* Space between FAQ items */
+    text-align: left; /* Align text to the left */
+}
+
+.faq-question {
+    cursor: pointer; /* Pointer cursor on hover */
+    display: flex; /* Flexbox for alignment */
+    justify-content: space-between; /* Space between question and arrow */
+    padding: 15px; /* Padding for clickable area */
+    background-color: #fff; /* White background for question */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+.faq-answer {
+    display: none; /* Hidden by default */
+    padding: 10px 15px; /* Padding for answer text */
+    background-color: #f1f1f1; /* Light background for answer */
+    border-radius: 0 0 10px 10px; /* Rounded corners at the bottom */
+}
+
+.arrow {
+    font-size: 1.5em; /* Size of arrow */
+    transition: transform 0.3s ease; /* Smooth transition for rotation */
+}
+
+.faq-question.active .arrow {
+    transform: rotate(45deg); /* Rotate arrow when active */
+}
+
+
+/* Existing styles remain unchanged above this line */
+
+/* Module Content */
+.module-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding: 20px; /* Add padding for better spacing */
+    background-color: #f8f9fa; /* Light background for contrast */
+    border-radius: 10px; /* Rounded edges */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Video and Progress Tracker Section */
+.module-video-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px; /* Limit the width of the container */
+    margin: 20px 0; /* Space above and below the video container */
+}
+
+.video-box {
+    flex: 1; /* Take up 1 part of the available space */
+    margin-right: 20px; /* Space between video and tracker */
+}
+
+.module-video {
+    width: 100%; /* Full width for video */
+    border-radius: 10px; /* Rounded edges for video */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for video */
+}
+
+.progress-tracker {
+    flex: 1; /* Take up 1 part of the available space */
+    background-color: #fff; /* White background for tracker */
+    padding: 20px;
+    border-radius: 10px; /* Rounded edges for tracker */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+.progress-bar {
+    background-color: #e0e0e0; /* Light grey background for progress bar */
+    border-radius: 5px; /* Rounded edges for progress bar */
+    height: 20px; /* Height of the progress bar */
+    overflow: hidden; /* Hide overflow for the fill */
+    margin-bottom: 10px; /* Space below the progress bar */
+}
+
+.progress-fill {
+    background-color: #76c7c0; /* Color of the filled progress */
+    height: 100%; /* Fill the height of the progress bar */
+    transition: width 0.3s; /* Smooth transition for width changes */
+}
+
+.progress-details {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    margin: 10px 0 0; /* Margin above */
+    font-size: 0.9em; /* Smaller font for progress details */
+}
+
+.progress-details li {
+    margin: 5px 0; /* Space between items */
+}
+
+/* Summary Section */
+.summary-section {
+    background-color: #fff; /* White background for summary */
+    padding: 20px;
+    border-radius: 10px; /* Rounded edges for summary */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    margin-top: 20px; /* Space above the summary */
+    max-width: 1200px; /* Limit the width of the summary */
+}
+
+.summary-section ul {
+    list-style-type: disc; /* Bullet points for list */
+    padding-left: 20px; /* Indent for list */
+}
+
+.summary-section p {
+    margin: 10px 0; /* Spacing for paragraphs */
+}
+
+/* Footer */
+footer {
+    background-color: #333; /* Dark footer background */
+    color: white;
+    padding: 20px; /* Padding for footer */
+    text-align: center;
+    margin-top: 20px; /* Space above footer */
+    border-radius: 10px; /* Rounded edges for footer */
+}
+
+/* Existing styles continue below this line */
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .module-video-container {
+        flex-direction: column; /* Stack video and tracker on small screens */
+    }
+
+    .video-box {
+        margin-right: 0; /* Remove margin on small screens */
+        margin-bottom: 20px; /* Space below video */
+    }
+}
