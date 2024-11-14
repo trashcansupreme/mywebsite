@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE/Editor specific
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Build/Deploy
+dist/
+build/
+.next/
+
+# Logs
+logs/
+*.log
+
+# MongoDB local data
+data/db/
+
+# Optional: local configuration files
+config.local.js
