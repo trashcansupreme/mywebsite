@@ -1,25 +1,18 @@
+:root {
+    --primary-color: #ffab40;
+    --secondary-color: #333;
+    --light-color: #f9f9f9;
+}
+
 body, html {
     margin: 0;
     padding: 0;
     font-family: "Ubuntu", sans-serif;
     font-weight: 300;
     scroll-behavior: smooth;
-    background-color:whitesmoke; /* Light background for better contrast */
+    background-color: rgb(35, 34, 34);
 }
 
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.8); 
-    backdrop-filter: blur(15px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    transition: background-color 0.3s ease, padding 0.3s ease;
-    padding: 15px 0; /* Increased padding for a more spacious look */
-}
-
-/* General reset */
 * {
     margin: 0;
     padding: 0;
@@ -27,81 +20,152 @@ header {
 }
 
 body {
+    margin: 0;
+    padding: 0;
     font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    scroll-behavior: smooth;
+    background-color: rgb(38, 37, 37);
+    padding-top: 80px;
     transition: background-color 0.5s ease;
 }
 
-/* Container for header items */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+    padding: 15px 0;
+    
+}
+
 .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 30px; /* More padding for better spacing */
+    padding: 10px 30px;
 }
 
-/* Logo Styling */
 .logo {
-    font-size: 2em; /* Larger font size for prominence */
+    font-size: 2em;
     font-weight: bold;
-    color: #fff; /* White color for better contrast */
+    color: #fff;
 }
 
-/* Menu Icon */
-.menu-icon {
+.hamburger {
+    display: inline-block;
     cursor: pointer;
-    padding: 10px;
-    color: white;
-    font-size: 30px;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 1100;
+    position: relative;
 }
 
-.menu-icon:hover {
-    background: rgba(255, 255, 255, 0.2); /* Highlight on hover */
+.hamburger-box {
+    display: inline-block;
+    width: 30px;
+    height: 20px;
+    position: relative;
 }
+
+.hamburger-inner {
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger-inner::before {
+    top: -8px;
+}
+
+.hamburger-inner::after {
+    top: 8px;
+}
+
+.hamburger.is-active .hamburger-inner {
+    transform: rotate(45deg);
+}
+
+.hamburger.is-active .hamburger-inner::before {
+    transform: rotate(-90deg);
+    top: 0;
+}
+
+.hamburger.is-active .hamburger-inner::after {
+    opacity: 0;
+}
+
 
 .fullscreen-menu {
-    position: center;
-    top: 0;
+    display: none; 
+    position: fixed;
     left: 0;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Darker background for fullscreen */
-    color: #ffab40; /* Orange text for contrast */
-    display: none;
-    z-index: 1000;
-    justify-content: center;
+    height: 100vh; 
+    background: rgba(0, 0, 0, 0.985);
+    z-index: 1000; 
+    text-align: center; 
+    justify-content: center; 
     align-items: center;
-    text-align: center; /* Center text */
+    flex-direction: column; 
+    overflow: hidden; 
 }
 
 .fullscreen-menu.active {
-    display: contents; /* Show when active */
+    display: flex; 
 }
 
-.menu-items a {
-    color: #ffab40; /* Orange link color */
+.fullscreen-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.fullscreen-menu li {
+    margin: 20px 0;
+}
+
+.fullscreen-menu a {
+    color: #fff;
     text-decoration: none;
-    padding: 20px;
-    font-size: 1.5em; /* Consistent sizing */
+    font-size: 50px;
+    font-weight: bold;
     transition: color 0.3s ease;
 }
 
-.menu-items a:hover {
-    color: #fff; /* White color on hover */
+.fullscreen-menu a:hover {
+    color: #f39c12;
 }
 
-.menu-items li {
-    margin: 15px 0; /* Reduced margin for a tighter look */
-}
-
-header .logo {
-    font-size: 2em; /* Increased logo size */
-    color: #ffab40; /* Match logo color with menu link */
-}
 
 .nav-menu {
-    list-style-type: none;
     display: flex;
-    gap: 30px; /* More space between items */
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
 .nav-menu li a {
@@ -113,77 +177,106 @@ header .logo {
 }
 
 .nav-menu li a:hover {
-    color: #ffab40; /* Highlight on hover */
+    color: var(--primary-color);
 }
 
 .btn {
     padding: 10px 20px;
-    background-color: #ffab40; /* Button color */
+    background-color: var(--primary-color);
     color: #fff;
     border: none;
     border-radius: 25px;
     font-weight: 600;
     text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s; /* Added transform for hover effect */
+    transition: background-color 0.3s ease, transform 0.2s;
 }
 
 .btn:hover {
-    background-color: #e09424; /* Darker shade on hover */
-    transform: translateY(-2px); /* Lift effect on hover */
+    background-color: #e09424;
+    transform: translateY(-2px);
 }
 
-/* Body Padding for Fixed Header */
-body {
-    padding-top: 80px; /* Adjust for header height */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Black with opacity */
 }
 
-/* Hero Section */
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    position: relative;
+}
+
+.close-button {
+    color: black;
+    float: right;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.modal.show {
+    display: block;
+    opacity: 1;
+}
 
 .hero-section {
     position: relative;
-    height: 100vh; /* Full viewport height */
-    overflow: hidden; /* Hide overflow */
-    display: flex; /* Use flexbox to center content */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
-    text-align: center; /* Center text alignment */
-    background-color: rgba(40, 40, 40, 0.8); /* Dark grey with transparency */
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-size: cover;
 }
 
 .background-video {
     position: absolute;
     top: 50%;
     left: 50%;
-    min-width: 100%; 
+    min-width: 100%;
     min-height: 100%;
-    width: auto; /* Maintain aspect ratio */
-    height: auto; /* Maintain aspect ratio */
-    transform: translate(-50%, -50%); /* Center the video */
-    object-fit: cover; /* Cover the area without stretching */
-    z-index: 0; /* Send the video to the back */
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 0; 
 }
-
-.hero-content {
-    position: relative; /* Position content above the video */
-    z-index: 1; /* Make sure content is above the video */
-    color: white; /* Change text color for visibility */
-    padding: 20px; /* Optional padding */
-}
-
 
 .hero-content {
     position: relative;
-    z-index: 1; /* Bring content in front of video */
-    color: white; /* Text color for visibility */
-    padding: 20px; /* Some padding */
-    font:
-     'MangoGrotesque';
-        src: url('Humane-Regular.woff2') format('woff2'), /* Modern Browsers */
-             url('Humane-Regular.otf') format('opentype'); /* Safari, Android, iOS */
-                 font-style: normal;
-        font-weight: normal;
-        text-rendering: optimizeLegibility;
-    
+    z-index: 1; 
+    color: white;
+    font-size: 1.5em ;
+}
+
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:black;
+    opacity: 0.7;
+    z-index: 1;
 }
 
 
@@ -191,97 +284,123 @@ body {
     margin: 10px 0;
 }
 
+.hero-content h1 {
+    font-size: 3.3em;
+    margin: 30px
+}
+
+.hero-content h2 {
+    margin: 30px;
+}
+
 .hero-btn {
     margin-top: 20px;
-    padding: 12px 24px; /* Slightly larger button */
-    background-color: #ffab40; /* Button color */
+    padding: 12px 24px;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s; /* Added transform for hover effect */
+    transition: background-color 0.3s ease, transform 0.2s;
 }
 
 .hero-btn:hover {
-    background-color: #e09424; /* Button hover color */
-    transform: translateY(-2px); /* Lift effect on hover */
+    background-color: #e09424;
+    transform: translateY(-2px);
 }
 
 .video-section {
     position: relative;
-    margin-top:200px;
-    margin-bottom: 300px;
+    margin: 200px 0 220px;
     display: flex;
-    background-color: #333;
     padding: 20px;
-    justify-content: center; /* Center the video */
+    justify-content: center;
 }
 
 .dynamic-video {
-    width:60%; /* Make video responsive */
-    height: 50%; /* Maintain aspect ratio */
-    border-radius: 15px; /* Apply rounded corners directly to the video */
-    display: block; /* Remove bottom whitespace */
-}
-
-.meet-the-man-section {
-    background-color: #fff; /* White background for contrast */
+    width: 60%;
+    height: 50%;
     border-radius: 15px;
-    padding: 40px;
-    text-align: center;
-    margin: 40px auto;
-    max-width: 600px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Increased shadow for depth */
+    display: block;
 }
 
-.meet-the-man-section h2 {
-    font-size: 2.5em; /* Increased font size */
+
+.testimonials-section {
+    background-color: var(--light-color);
+    padding: 150px 100px;
+    text-align: center;
+    border-radius: 15px;
+    margin: 40px auto 200px;
+    max-width: 1500px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.testimonials-section h2 {
+    font-size: 2.8em;
     font-weight: bold;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    color: var(--secondary-color);
+    margin-bottom: 40px;
 }
 
-.meet-the-man-section p {
-    font-size: 1.2em;
-    font-weight: 400; /* Normal weight for body text */
-    color: #333;
-}
-
-.meet-the-man-section {
-    display: flex;
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
     align-items: center;
-    justify-content: center;
-    margin: 40px auto;
-    max-width: 1000px;
-    padding: 20px;
 }
 
-.meet-the-man-text {
-    flex: 1;
-    padding-right: 20px;
+.testimonial-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
 }
 
-.meet-the-man-image {
-    flex: 0 0 300px;
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.meet-the-man-image img {
-    max-width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Shadow for the image */
+.testimonial-video {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-/* Course Overview */
+.testimonial-content {
+    padding: 15px;
+}
+
+.testimonial-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px;
+    color: var(--secondary-color);
+}
+
+.testimonial-text {
+    font-size: 1em;
+    color: #666;
+    margin: 10px 0;
+}
+
 .course-overview {
-    padding: 50px 20px; /* Add side padding for smaller screens */
-    background-color: #f3f3f3;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
     text-align: center;
 }
 
 .course-overview h2 {
-    font-size: 2.5em; /* Increased heading size */
-    margin-bottom: 20px;
-    color: #444; /* Darker color for better readability */
+    font-size: 2.5em; 
+    margin: 0 auto 20px; 
+    color: #444; 
+    text-align: center; 
 }
 
 .benefits {
@@ -295,10 +414,10 @@ body {
 .benefit {
     flex: 1 1 30%;
     margin-bottom: 20px;
-    padding: 20px; /* Added padding for the benefit items */
-    background-color: #fff; /* Background for contrast */
-    border-radius: 15px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    padding: 20px;
+    background-color: #fff; 
+    border-radius: 15px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .benefit h3 {
@@ -307,56 +426,60 @@ body {
 
 .testimonials {
     position: relative;
-    padding: 40px 20px;
-    background-color: #f9f9f9; /* Light background color */
-    text-align: center;
+    overflow: hidden;
+    width: 100%;
+    height: 100px; 
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
 }
 
 .testimonial-slider {
     display: flex;
-    overflow: hidden; /* Hide overflow for sliding effect */
-    border-radius: 15px; /* Rounded corners for the slider */
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); /* Increased shadow for depth */
+    animation: scrollAnimation 20s linear infinite;
 }
 
 .testimonial-item {
-    min-width: 100%; /* Each testimonial takes full width */
-    transition: transform 0.5s ease; /* Smooth transition for sliding */
-    padding: 20px; /* Padding for testimonial text */
-    background-color: white; /* White background for testimonials */
-    border-radius: 15px; /* Rounded corners */
-    box-sizing: border-box; /* Ensure padding is included in width */
+    min-width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    white-space: normal;
+    display: inline-block;
 }
 
-.testimonial-item p {
-    margin: 0; /* Remove default margin */
-    font-size: 1.2em; /* Font size for testimonial text */
-    color: #333; /* Text color */
+/* Continuous scrolling animation */
+@keyframes scrollAnimation {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
 }
 
 .modules {
     text-align: center;
-    margin: 40px auto;
+    margin: 85px auto;
+    background-color: #f9f9f9;
 }
 
 .module-container {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Space between boxes */
+    gap: 100px;
 }
 
 .module-box {
-    background-color: #f0f0f0; /* Light background */
-    border-radius: 15px; /* Round edges */
-    padding: 20px;
-    width: 200px; /* Fixed width */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: transform 0.2s, box-shadow 0.2s; /* Animation effects */
+    background-color: #f0f0f0; 
+    border-radius: 15px; 
+    padding: 100px;
+    width: 500px; 
+    margin-top: 50px;
+    margin-bottom: 50px;
+    cursor: pointer; 
+    transition: transform 0.2s, box-shadow 0.2s; 
 }
 
 .module-box:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .module-box h3 {
@@ -369,11 +492,10 @@ body {
     font-size: 1em;
 }
 
-/* FAQ Section */
 .faq-section {
-    background-color: #f9f9f9;
-    padding: 50px 20px; /* Added side padding for smaller screens */
-    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr; 
+    row-gap: 20px; 
 }
 
 .faq-item {
@@ -436,200 +558,210 @@ footer {
     }
 }
 
-/* About Us Section */
-.about-us {
-    background-color: #f3f3f3; /* Light background */
-    padding: 50px 20px; /* Top and bottom padding */
-    text-align: center; /* Center the text */
-    margin-top: 150px;
+.about-section {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.about-us h2 {
-    font-size: 2.5em; /* Larger heading */
-    margin-bottom: 20px; /* Space below heading */
-    color: #444; /* Darker color for better readability */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
 }
 
-.about-container {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1200px; /* Limit the width */
-    margin: 0 auto; /* Center the container */
+.container {
+    padding: 0 16px;
 }
 
-.about-images {
-    flex: 1; /* Take up available space */
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Space between images */
+.column {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
 }
 
-.about-item {
-    background-color: white; /* White background for items */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
-    padding: 20px;
-    text-align: left; /* Align text to the left */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+    background: #fff;
+    padding: 16px;
+    border-radius: 8px;
 }
 
-.about-image {
-    width: 100%; /* Responsive image */
-    border-radius: 10px; /* Round edges */
+.about-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #474e5d;
+    color: white;
 }
 
-.about-text {
-    flex: 1; /* Take up remaining space */
-    padding-left: 20px; /* Space from the images */
-    align-self: center; /* Center vertically */
+.title {
+    color: grey;
 }
 
-.about-text p {
-    font-size: 1.2em; /* Increased font size for better readability */
-    color: #333; /* Dark text */
+.button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
 }
 
-/* FAQ Section */
+.button:hover {
+    background-color: #555;
+}
+
+/* Responsive Columns */
+@media screen and (max-width: 650px) {
+    .column {
+        width: 100%;
+        display: block;
+    }
+}
+
 .faq-section {
-    background-color: #f9f9f9; /* Light background color */
-    padding: 50px 20px; /* Add padding */
-    text-align: center; /* Center text */
+    background-color: #f9f9f9; 
+    padding: 50px 20px; 
+    text-align: center; 
 }
 
 .faq-section h2 {
-    font-size: 2.5em; /* Heading size */
-    margin-bottom: 20px; /* Space below heading */
-    color: #444; /* Darker color for better readability */
+    font-size: 2.5em; 
+    margin-bottom: 20px; 
+    color: #444; 
 }
 
 .faq-item {
-    margin-bottom: 30px; /* Space between FAQ items */
-    text-align: left; /* Align text to the left */
+    margin-bottom: 30px; 
+    text-align: left; 
 }
 
 .faq-question {
-    cursor: pointer; /* Pointer cursor on hover */
-    display: flex; /* Flexbox for alignment */
-    justify-content: space-between; /* Space between question and arrow */
-    padding: 15px; /* Padding for clickable area */
-    background-color: #fff; /* White background for question */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    cursor: pointer; 
+    display: flex;
+    justify-content: space-between;
+    padding: 15px; 
+    background-color: #fff; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 .faq-answer {
-    display: none; /* Hidden by default */
-    padding: 10px 15px; /* Padding for answer text */
-    background-color: #f1f1f1; /* Light background for answer */
-    border-radius: 0 0 10px 10px; /* Rounded corners at the bottom */
+    display: none; 
+    padding: 10px 15px; 
+    background-color: #f1f1f1; 
+    border-radius: 0 0 10px 10px; 
 }
 
 .arrow {
-    font-size: 1.5em; /* Size of arrow */
-    transition: transform 0.3s ease; /* Smooth transition for rotation */
+    font-size: 1.5em; 
+    transition: transform 0.3s ease;
 }
 
 .faq-question.active .arrow {
-    transform: rotate(45deg); /* Rotate arrow when active */
+    transform: rotate(45deg); 
 }
 
-
-/* Existing styles remain unchanged above this line */
-
-/* Module Content */
 .module-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 20px;
-    padding: 20px; /* Add padding for better spacing */
-    background-color: #f8f9fa; /* Light background for contrast */
-    border-radius: 10px; /* Rounded edges */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    padding: 20px; 
+    background-color: #f8f9fa; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
 }
 
-/* Video and Progress Tracker Section */
 .module-video-container {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    max-width: 1200px; /* Limit the width of the container */
-    margin: 20px 0; /* Space above and below the video container */
+    max-width: 1200px;
+    margin: 20px 0; 
 }
 
 .video-box {
-    flex: 1; /* Take up 1 part of the available space */
-    margin-right: 20px; /* Space between video and tracker */
+    flex: 1;
+    margin-right: 20px; 
 }
 
 .module-video {
-    width: 100%; /* Full width for video */
-    border-radius: 10px; /* Rounded edges for video */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for video */
+    width: 100%; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 .progress-tracker {
-    flex: 1; /* Take up 1 part of the available space */
-    background-color: #fff; /* White background for tracker */
+    flex: 1; 
+    background-color: #fff; 
     padding: 20px;
-    border-radius: 10px; /* Rounded edges for tracker */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 .progress-bar {
-    background-color: #e0e0e0; /* Light grey background for progress bar */
-    border-radius: 5px; /* Rounded edges for progress bar */
-    height: 20px; /* Height of the progress bar */
-    overflow: hidden; /* Hide overflow for the fill */
-    margin-bottom: 10px; /* Space below the progress bar */
+    background-color: #e0e0e0; 
+    border-radius: 5px; 
+    height: 20px; 
+    overflow: hidden; 
+    margin-bottom: 10px; 
 }
 
 .progress-fill {
-    background-color: #76c7c0; /* Color of the filled progress */
-    height: 100%; /* Fill the height of the progress bar */
-    transition: width 0.3s; /* Smooth transition for width changes */
+    background-color: #76c7c0; 
+    height: 100%; 
+    transition: width 0.3s; 
 }
 
 .progress-details {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove padding */
-    margin: 10px 0 0; /* Margin above */
-    font-size: 0.9em; /* Smaller font for progress details */
+    list-style-type: none; 
+    padding: 0; 
+    margin: 10px 0 0; 
+    font-size: 0.9em; 
 }
 
 .progress-details li {
-    margin: 5px 0; /* Space between items */
+    margin: 5px 0; 
 }
 
-/* Summary Section */
 .summary-section {
-    background-color: #fff; /* White background for summary */
+    background-color: #fff; 
     padding: 20px;
-    border-radius: 10px; /* Rounded edges for summary */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-    margin-top: 20px; /* Space above the summary */
-    max-width: 1200px; /* Limit the width of the summary */
+    border-radius: 10px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    margin-top: 20px;
+    max-width: 1200px;
 }
 
 .summary-section ul {
-    list-style-type: disc; /* Bullet points for list */
-    padding-left: 20px; /* Indent for list */
+    list-style-type: disc;
+    padding-left: 20px;
 }
 
 .summary-section p {
-    margin: 10px 0; /* Spacing for paragraphs */
+    margin: 10px 0; 
 }
 
-/* Footer */
 footer {
-    background-color: #333; /* Dark footer background */
+    background-color: #333; 
     color: white;
-    padding: 20px; /* Padding for footer */
+    padding: 20px; 
     text-align: center;
-    margin-top: 20px; /* Space above footer */
-    border-radius: 10px; /* Rounded edges for footer */
+    margin-top: 20px;
+    border-radius: 10px;
 }
 
-/* Existing styles continue below this line */
+:root {
+    --primary-color: #ffab40;
+    --secondary-color: #333;
+    --light-color: #f9f9f9;
+}
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
